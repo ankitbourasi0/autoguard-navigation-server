@@ -1,0 +1,28 @@
+1. INSTALL : npm install socket.io
+2. Replace your app.listen() block with this full Socket.IO-enabled version:
+
+
+
+Client Side: 
+npm install socket.io-client
+import { io } from "socket.io-client";
+
+// Use correct IP (use 10.0.2.2 on Android emulator, or LAN IP on real device)
+const socket = io("http://10.0.2.2:3000");
+
+Inside your location watcher (or after setCurrentCoord(coord)), emit location:
+socket.emit("locationUpdate", {
+  userId: 123,
+  latitude: coord.latitude,
+  longitude: coord.longitude,
+  timestamp: new Date().toISOString(),
+});
+✅ This sends data to your backend every time the location updates.
+
+ Example Payload
+{
+  "userId": 123,
+  "latitude": -25.836071,
+  "longitude": 28.191643,
+  "timestamp": "2025-05-26T12:05:00Z"
+}

@@ -1,0 +1,14 @@
+1.npm init -y
+2.npm install express
+3.touch index.js
+4.auto-reload during development: npm install --save-dev nodemon
+"scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+}
+run using: npm run dev
+5. Add method to get location coordniates in this format:  Current Location: {"latitude": 37.4219983, "longitude": -122.084}
+Body parsing middleware add karo
+Aapko Express ko batana padega ki JSON body ko kaise handle kare:
+app.use(express.json()); // ye middleware JSON body ko read karne ke liye zaroori hai
+6. Reverse Geocoding using Open cage 2500 request / day or openstreemap:
