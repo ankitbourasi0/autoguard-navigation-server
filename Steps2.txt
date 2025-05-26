@@ -26,3 +26,8 @@ socket.emit("locationUpdate", {
   "longitude": 28.191643,
   "timestamp": "2025-05-26T12:05:00Z"
 }
+
+
+Apply Reverse GeoCoding
+1. import axios
+const axios = require("axios");
