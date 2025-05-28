@@ -1,10 +1,10 @@
 {
   "name": "autoguard-navigation-server",
   "version": "1.0.0",
-  "main": "index1.js",
+  "main": "index2.js",
   "scripts": {
-    "start": "node index1.js",
-    "dev": "nodemon index1.js"
+    "start": "node index2.js",
+    "dev": "nodemon index2.js"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +12,10 @@
   "description": "",
   "dependencies": {
     "axios": "^1.9.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
