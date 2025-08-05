@@ -20,7 +20,13 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok", message: "server is running" });
 });
 
-// ✅ Validate raw location
+let lastLocation = {
+  latitude: 0,
+  longitude: 0,
+  updatedAt: null
+};
+
+// Add/update this in /current-location route
 app.post("/current-location", (req, res) => {
   const { longitude, latitude } = req.body;
 
@@ -32,12 +38,25 @@ app.post("/current-location", (req, res) => {
     return res.status(400).json({ status: "error", message: "Longitude and Latitude must be numbers" });
   }
 
+  // ✅ Store the location
+  lastLocation = {
+    latitude,
+    longitude,
+    updatedAt: Date.now()
+  };
+
   res.status(200).json({
     status: "success",
     message: "Location received successfully",
     data: { longitude, latitude }
   });
 });
+
+// ✅ NEW: Web app will call this
+app.get("/api/location", (req, res) => {
+  res.status(200).json(lastLocation);
+});
+
 
 // ✅ Reverse geocoding using Nominatim
 app.post('/location', async (req, res) => {
