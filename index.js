@@ -29,7 +29,7 @@ let lastLocation = {
 // Add/update this in /current-location route
 app.post("/current-location", (req, res) => {
   const { longitude, latitude } = req.body;
-
+  console.log(longitude, latitude)
   if (longitude === undefined || latitude === undefined) {
     return res.status(400).json({ status: "error", message: "Longitude and Latitude are required" });
   }
